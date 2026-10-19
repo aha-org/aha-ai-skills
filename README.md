@@ -4,7 +4,7 @@ Internal Claude skills for Aha. Keep this repo private: it contains our internal
 
 | Skill | What it does |
 | --- | --- |
-| [`aha-interactive-deck`](skills/aha-interactive-deck/SKILL.md) | Turns any slide deck (PDF, PPTX, Keynote, Google Slides) into an interactive, arrow-key Aha presentation with live Milo, timers, games and sound, like Being There Matters and Save Me a Seat. |
+| [`manans-interactive-deck`](skills/manans-interactive-deck/SKILL.md) | Turns any slide deck (PDF, PPTX, Keynote, Google Slides) into an interactive, arrow-key Aha presentation with live Milo, timers, games and sound, like Being There Matters and Save Me a Seat. |
 
 ## Install
 
@@ -26,14 +26,14 @@ To get updates later: `/plugin marketplace update aha-ai-skills`.
 ```bash
 git clone git@github.com:aha-org/aha-ai-skills.git ~/aha-ai-skills
 mkdir -p ~/.claude/skills
-ln -s ~/aha-ai-skills/skills/aha-interactive-deck ~/.claude/skills/aha-interactive-deck
+ln -s ~/aha-ai-skills/skills/manans-interactive-deck ~/.claude/skills/manans-interactive-deck
 ```
 
 To get updates later: `git -C ~/aha-ai-skills pull`.
 
 Either way, start a **new** session afterwards (skills load when a session starts).
 
-## Using aha-interactive-deck
+## Using manans-interactive-deck
 
 ### What you need
 
@@ -49,7 +49,7 @@ No fonts (not even Satoshi) or Milo files need to be installed: everything ships
 
 Drag in your PDF (and any illustration files) and send something like:
 
-> Use the aha-interactive-deck skill to turn this deck into an interactive Aha presentation. Keep every heading. It's for [audience / what the session is]. Activities: [e.g. slide 9 is a 7-minute group task with a twist at 2:30, slide 4 is a 30-second reflection]. Links: [what each QR code should open]. Make it [public / password-protected with the password ___].
+> Use the manans-interactive-deck skill to turn this deck into an interactive Aha presentation. Keep every heading. It's for [audience / what the session is]. Activities: [e.g. slide 9 is a 7-minute group task with a twist at 2:30, slide 4 is a 30-second reflection]. Links: [what each QR code should open]. Make it [public / password-protected with the password ___].
 
 Claude unpacks the deck, plans what each slide becomes, builds it, checks every slide in the browser, and gives you a link or a file.
 

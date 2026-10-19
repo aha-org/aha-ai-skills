@@ -1,9 +1,9 @@
 ---
-name: aha-interactive-deck
+name: manans-interactive-deck
 description: Turns a static slide deck (PPT/PPTX, Keynote export, PDF, Google Slides SVG, or screenshots) into an interactive, arrow-key web presentation in Aha's design language — Material 3 Expressive components and motion, Aha colours and fonts, live Milo, sticker icons, projector-size type, one-idea-per-click reveals, built-in timers, games and sound — then bundles it into one file and deploys it to Vercel. Use this whenever someone wants to make a deck, talk, workshop or presentation "interactive", "gamified", "animated", "a website", "clickable", "like Being There Matters / Save Me a Seat", or wants to present slides from a browser, even if they only say "convert my PPT" or "make this deck better for the session". Also use it for edits to decks built this way (folders with index.html + deck.js + milo.js).
 ---
 
-# Aha interactive deck
+# Manan's interactive deck
 
 Build a presentation website from a slide deck: a 1600 × 900 stage scaled to any screen, driven by the arrow keys, where each slide becomes a small piece of interaction (a crowd that regroups, a barrel of steps, a timer, flip cards, a story with Milo) instead of a static page. The output is a folder you can preview locally, a single self-contained HTML file, and a live URL.
 
