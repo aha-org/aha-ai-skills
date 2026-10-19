@@ -1,0 +1,11 @@
+{
+  "name": "aha-ai-skills",
+  "owner": { "name": "Aha" },
+  "plugins": [
+    {
+      "name": "aha-skills",
+      "source": "./",
+      "description": "Aha's internal Claude skills (brand, Milo, presentations)."
+    }
+  ]
+}

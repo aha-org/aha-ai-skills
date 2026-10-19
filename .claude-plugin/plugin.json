@@ -1,0 +1,6 @@
+{
+  "name": "aha-skills",
+  "description": "Aha's internal Claude skills (brand, Milo, presentations).",
+  "version": "0.1.0",
+  "author": { "name": "Aha" }
+}

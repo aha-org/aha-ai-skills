@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Save Me a Seat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Schoolbell&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" rel="stylesheet">
+<link href="styles.css?v=15" rel="stylesheet">
+</head>
+<body>
+<div id="bgfill"></div>
+<div id="wipe"></div>
+
+<main id="stage">
+
+  <!-- 1 -->
+  <section class="slide" id="s-title" data-steps="1">
+    <div class="title-panel"></div>
+    <div class="logo rise"></div>
+    <div class="title-wrap">
+      <h1 class="display split">Save me<br>a seat.</h1>
+      <p class="sub rise" style="--d:6">There's always room for one more.</p>
+    </div>
+    <div class="note hand rise" style="--d:10">psst… there's a<br>seat here for you.</div>
+    <div class="ill-bench" data-bench="title"><img class="bench-img" src="assets/bench.webp" alt=""><img class="book" src="assets/book.webp" alt=""></div>
+  </section>
+
+  <!-- 2 -->
+  <section class="slide" id="s-never" data-steps="7">
+    <div class="head">
+      <h2 class="split">Never have I ever…</h2>
+      <p class="lede rise" style="--d:4">Take a sip if you have. Then reset for the next one.</p>
+    </div>
+    <div class="never-stage"><div class="never-card"></div></div>
+    <div class="crowd-row" data-crowd="never"></div>
+  </section>
+
+  <!-- 3 -->
+  <section class="slide" id="s-hi" data-steps="4">
+    <div class="head">
+      <h2 class="split">Hi, we're <span class="brandword">aha.</span></h2>
+      <p class="lede rise" style="--d:4">Psychologists, coaches and a tech team who make it easier to feel okay, and easier to reach out when you're not.</p>
+    </div>
+    <div class="hi-milo" data-s="1" data-milo="hi"></div>
+    <div class="note hand hi-note" data-s="1">ta-da! i'm milo, and these are my humans.</div>
+    <div class="hi-cards">
+      <div class="hc" data-s="1"><span class="stk-me"><i class="ph-bold ph-chat-circle-dots"></i></span><b>Milo, our wellness companion</b><p>In your pocket on the aha app: check in, journal and notice your patterns.</p></div>
+      <div class="hc" data-s="2"><span class="stk-me"><i class="ph-bold ph-users-three"></i></span><b>Real people behind it</b><p>Our psychologists step in when you need more than a chat.</p></div>
+      <div class="hc" data-s="3"><span class="stk-me"><i class="ph-bold ph-calendar-heart"></i></span><b>On campus, three times a month</b><p>In-person therapy sessions, plus workshops like this one, built to be played, not lectured.</p></div>
+    </div>
+    <p class="hope" data-s="4">Our hope: that reaching out feels as normal as saying hi.</p>
+  </section>
+
+  <!-- 4 -->
+  <section class="slide" id="s-mean" data-steps="1">
+    <div class="head">
+      <h2 class="split">What do belongingness and connection mean for us?</h2>
+      <p class="lede rise" style="--d:6">Take 30 seconds. Pick any one of these, or answer your own way.</p>
+    </div>
+    <div class="mean-cards">
+      <button class="mean-card t-butter rise" style="--d:8"><span class="lbl"><span class="stk-me"><i class="ph-bold ph-text-aa"></i></span>A word</span><p>If belonging or connection were one word, what would it be?</p></button>
+      <button class="mean-card t-green rise" style="--d:9"><span class="lbl"><span class="stk-me"><i class="ph-bold ph-sparkle"></i></span>A moment</span><p>When did you last feel like you truly fit in?</p></button>
+      <button class="mean-card t-peach rise" style="--d:10"><span class="lbl"><span class="stk-me"><i class="ph-bold ph-map-pin"></i></span>A place</span><p>Where do you feel most like yourself?</p></button>
+    </div>
+    <div class="mean-foot">
+      <div class="hand promise rise" style="--d:12">no wrong answers, promise.</div>
+      <div class="ring-timer shape-timer" data-timer="mean" data-secs="30"><svg viewBox="0 0 120 120"><path class="trk"/><path class="arc" pathLength="1"/></svg><b>0:30</b><small>press → to start</small></div>
+    </div>
+  </section>
+
+  <!-- 5 -->
+  <section class="slide forest-slide" id="s-match" data-bg="forest" data-steps="4">
+    <div class="match-left">
+      <h1 class="display split">Find your<br>match. Fast.</h1>
+      <p class="lede rise" style="--d:6">A new prompt every round. Find someone who matches, and stand together.</p>
+      <div class="meta rise" style="--d:8"><span><span class="stk-me"><i class="ph-bold ph-timer"></i></span>4 rounds · about 5 minutes</span><span class="acc"><span class="stk-me"><i class="ph-bold ph-hand-waving"></i></span>No match? Come stand with us.</span></div>
+    </div>
+    <div class="arena">
+      <div class="round"><span class="eyebrow">Get ready</span><p>Mingle. Prompts change every round.</p></div>
+      <div class="arena-field" data-crowd="match"></div>
+      <div class="hand every" data-s="4">everyone ends up somewhere.</div>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section class="slide" id="s-share" data-steps="4">
+    <div class="head">
+      <h2 class="split">What we all share.</h2>
+      <p class="lede rise" style="--d:4">Look around. We have more in common than it seems.</p>
+    </div>
+    <div class="share-grid">
+      <div class="sc" data-s="1"><i>01</i>We all chose this university.</div>
+      <div class="sc" data-s="1"><i>02</i>We all walk the same campus.</div>
+      <div class="sc" data-s="2"><i>03</i>We all showed up in this room today.</div>
+      <div class="sc" data-s="2"><i>04</i>We have all been the new person somewhere.</div>
+      <div class="sc" data-s="3"><i>05</i>We have all waited for someone to say hi.</div>
+      <div class="sc" data-s="3"><i>06</i>We all want our time here to count.</div>
+      <div class="sc" data-s="4"><i>07</i>We all need a few people to count on.</div>
+      <div class="sc last" data-s="4"><i>08</i>Right now, we all belong to this room.</div>
+    </div>
+    <div class="crowd-row" data-crowd="share"></div>
+  </section>
+
+  <!-- 7 -->
+  <section class="slide" id="s-words" data-bg="green" data-steps="0">
+    <div class="words-left">
+      <p class="eyebrow rise">From words to play</p>
+      <h1 class="big split">Easy to describe.<br><span class="g">Harder to notice in the moment.</span></h1>
+      <p class="lede rise" style="--d:10">Let's see where or how they show up.</p>
+    </div>
+    <div class="note hand rise" style="--d:12">keep your eyes open.</div>
+    <div class="words-milo" data-milo="words"></div>
+    <svg class="lens" viewBox="0 0 200 200"><g class="lens-g"><line x1="132" y1="132" x2="184" y2="184" stroke="#1C1C1C" stroke-width="22" stroke-linecap="round"/><line x1="132" y1="132" x2="184" y2="184" stroke="#F28C38" stroke-width="10" stroke-linecap="round"/><circle cx="84" cy="84" r="62" fill="rgba(255,255,255,.35)" stroke="#1C1C1C" stroke-width="14"/><path d="M52 66 A40 40 0 0 1 80 44" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/></g></svg>
+  </section>
+
+  <!-- 8 -->
+  <section class="slide forest-slide" id="s-challenge" data-bg="forest" data-steps="1">
+    <div class="ch-left">
+      <h1 class="display split">The Great<br>Group Challenge.</h1>
+      <p class="lede rise" style="--d:8">Make teams of 5–6. You have 7 minutes.</p>
+      <div class="hand twist-note" data-s="1">psst… there might be a twist.</div>
+    </div>
+    <div class="tables" data-tables="challenge"></div>
+  </section>
+
+  <!-- 9 -->
+  <section class="slide" id="s-fest" data-steps="5">
+    <div class="head">
+      <h2 class="split">Plan the ultimate campus fest.</h2>
+      <p class="lede rise" style="--d:5">Pitch a festival students would actually turn up for.</p>
+    </div>
+    <div class="fest-cards">
+      <div class="fc" data-s="1"><div class="fc-top"><i>01</i><span class="stk-me"><i class="ph-bold ph-tag"></i></span></div><b>A name</b><p>What's it called?</p></div>
+      <div class="fc" data-s="2"><div class="fc-top"><i>02</i><span class="stk-me"><i class="ph-bold ph-music-notes"></i></span></div><b>3 activities</b><p>What happens there?</p></div>
+      <div class="fc" data-s="3"><div class="fc-top"><i>03</i><span class="stk-me"><i class="ph-bold ph-megaphone"></i></span></div><b>A one-line pitch</b><p>Why would people come?</p></div>
+    </div>
+    <div class="timeline" data-s="4">
+      <div class="tl-clock"><b data-clock>7:00</b><span data-clockhint>press → to start the 7 minutes</span></div>
+      <div class="tl-track"><svg class="tl-wave" viewBox="0 0 1408 40" preserveAspectRatio="none"></svg><div class="tl-walker" data-milo="fest"></div></div>
+      <div class="tl-marks">
+        <div class="mk" style="left:0%"><i>0:00</i>Plan together</div>
+        <div class="mk q" style="left:35.71%"><i>2:30</i>???</div>
+        <div class="mk" style="left:85.71%"><i>6:00</i>Pitch time</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10 -->
+  <section class="slide" id="s-twist" data-bg="peach" data-steps="1">
+    <div class="tw-text">
+      <h1 class="display split">Plot twist.</h1>
+      <p class="lede rise" style="--d:5">1–2 people from each team now move to a different table.</p>
+      <p class="small rise" style="--d:7">Keep working. Follow the instructions you've been given.</p>
+    </div>
+    <div class="tables low" data-tables="twist"></div>
+  </section>
+
+  <!-- 11 -->
+  <section class="slide clouds" id="s-freeze" data-steps="3">
+    <div class="head">
+      <h2 class="split">Freeze frame. What just happened?</h2>
+      <p class="lede rise" style="--d:6">No right answers. Share one word, or pass.</p>
+    </div>
+    <div class="flash"></div>
+    <div class="fz-cards">
+      <div class="fz" data-s="1"><div class="fz-milo" data-milo="fz1"></div><span class="lbl">If you moved</span><p>What was it like joining a group mid-flow?</p></div>
+      <div class="fz" data-s="2"><div class="fz-milo" data-milo="fz2"></div><span class="lbl">If you stayed</span><p>What did you notice? What did you assume?</p></div>
+      <div class="fz" data-s="3"><div class="fz-milo" data-milo="fz3"></div><span class="lbl">For everyone</span><p>What helped, or blocked, participation?</p></div>
+    </div>
+  </section>
+
+  <!-- 12 -->
+  <section class="slide forest-slide" id="s-rule" data-bg="forest" data-steps="1">
+    <div class="rule-left">
+      <h1 class="display split">Same team.<br>One new rule.</h1>
+      <p class="lede rise" style="--d:7">You've got 2 minutes:</p>
+      <div class="rule-steps">
+        <div class="rs rise" style="--d:9"><span class="stk-me"><i class="ph-bold ph-hand-waving"></i></span>Welcome your new teammates</div>
+        <div class="rs rise" style="--d:10"><span class="stk-me"><i class="ph-bold ph-chats-circle"></i></span>Catch them up on everything so far</div>
+        <div class="rs rise" style="--d:11"><span class="stk-me"><i class="ph-bold ph-puzzle-piece"></i></span>Build their ideas in</div>
+      </div>
+      <p class="small rise" style="--d:13">Then finish and pitch.</p>
+    </div>
+    <div class="rule-right">
+      <div class="ring-timer big shape-timer" data-timer="rule" data-secs="120"><svg viewBox="0 0 120 120"><path class="trk"/><path class="arc" pathLength="1"/></svg></div>
+      <div class="rule-milo" data-milo="rule"></div>
+      <div class="rule-clock"><b>2:00</b><small>press → to start</small></div>
+    </div>
+  </section>
+
+  <!-- 13 -->
+  <section class="slide" id="s-changed" data-steps="2">
+    <div class="head">
+      <h2 class="split">What changed when we made room?</h2>
+      <p class="lede rise" style="--d:6">Think beyond whether the task got finished.</p>
+    </div>
+    <div class="cmp">
+      <div class="cq plain rise" style="--d:8"><span class="lbl">Before</span><p>“Figure out how we work.”</p></div>
+      <div class="arrow rise" style="--d:9"><i class="ph-bold ph-arrow-right"></i></div>
+      <div class="cq filled" data-s="1"><span class="lbl">After</span><p>“Help us shape what we become.”</p></div>
+      <div class="cmp-milo" data-milo="cmp"></div>
+    </div>
+    <p class="ask" data-s="2"><span class="stk-me"><i class="ph-bold ph-magnifying-glass"></i></span>Which exact action made the difference?</p>
+  </section>
+
+  <!-- 14 -->
+  <section class="slide" id="s-nocards" data-steps="5">
+    <div class="head">
+      <h2 class="split">Outside this room, there are no cards.</h2>
+      <p class="lede rise" style="--d:6">But there are still unwritten rules.</p>
+    </div>
+    <div class="flips">
+      <div class="flip t-green"><div class="fi"><div class="ff back"><span class="stk-me"><i class="ph-bold ph-users-three"></i></span><b>Friend groups</b></div><div class="ff front"><span class="lbl">Friend groups</span><p>Everyone has a shared history.</p></div></div></div>
+      <div class="flip t-butter"><div class="fi"><div class="ff back"><span class="stk-me"><i class="ph-bold ph-graduation-cap"></i></span><b>Campus culture</b></div><div class="ff front"><span class="lbl">Campus culture</span><p>Everyone seems to know what to do.</p></div></div></div>
+      <div class="flip t-blue"><div class="fi"><div class="ff back"><span class="stk-me"><i class="ph-bold ph-clipboard-text"></i></span><b>Group projects</b></div><div class="ff front"><span class="lbl">Group projects</span><p>Everyone already has a role.</p></div></div></div>
+      <div class="flip t-peach"><div class="fi"><div class="ff back"><span class="stk-me"><i class="ph-bold ph-chats-teardrop"></i></span><b>Group chats</b></div><div class="ff front"><span class="lbl">Group chats</span><p>Everyone seems to be in on it.</p></div></div></div>
+    </div>
+    <div class="outside" data-s="5"><div class="out-milo" data-milo="outside"></div><p>Sometimes nobody means to exclude anyone, and someone still feels outside.</p></div>
+  </section>
+
+  <!-- 15 -->
+  <section class="slide" id="s-full" data-bg="green" data-steps="2">
+    <img class="tree tl" src="assets/tree-b.webp" alt="">
+    <img class="tree tr" src="assets/tree-a.webp" alt="">
+    <div class="full-text">
+      <h1 class="big split">A campus can be full of people…</h1>
+      <h1 class="big g split" data-s="1">…and someone can still feel alone.</h1>
+      <p class="caption" data-s="2">Being around people isn't the same as feeling connected.</p>
+    </div>
+    <div class="campus" data-crowd="full"></div>
+  </section>
+
+  <!-- 16 -->
+  <section class="slide" id="s-fit" data-steps="3">
+    <div class="head">
+      <h2 class="split">Fitting in is not the same as belonging.</h2>
+    </div>
+    <div class="fit-panels">
+      <div class="fp plain rise" style="--d:6"><span class="lbl">Fitting in</span><div class="fp-stage" data-crowd="fit"></div><p>“What must I change to be accepted?”</p></div>
+      <div class="fp filled rise" style="--d:8"><span class="lbl">Belonging</span><div class="fp-stage" data-crowd="belong"></div><p>“Can I be myself and still take part?”</p></div>
+    </div>
+    <p class="fit-foot" data-s="3">Belonging is something we receive, <b>and something we create for others.</b></p>
+  </section>
+
+  <!-- 17 -->
+  <section class="slide" id="s-five" data-steps="6">
+    <div class="head">
+      <h2 class="split">5 tiny ways to save a seat.</h2>
+      <p class="lede rise" style="--d:4">You don't have to become everyone's best friend.</p>
+    </div>
+    <div class="barrel"><div class="five-hopper" data-milo="five"></div></div>
+  </section>
+
+  <!-- 18 -->
+  <section class="slide" id="s-alone" data-steps="3">
+    <div class="al-head">
+      <h2 class="split">You notice someone standing alone.</h2>
+      <p class="lede rise" style="--d:6">You've seen them in class, but you've never spoken.</p>
+    </div>
+    <div class="al-stage">
+      <div class="inv" data-i="1">“we're heading for chai, want to come?”</div>
+      <div class="inv" data-i="2">“is this your first society meeting too?”</div>
+      <div class="inv" data-i="3">“want me to catch you up?”</div>
+      <div class="al-me" data-milo="al-me"></div>
+      <div class="al-them" data-milo="al-them"></div>
+    </div>
+    <div class="al-foot rise" style="--d:10">
+      <p class="q">What could you say that feels natural, not forced?</p>
+      <p class="eyebrow try"><span class="stk-me"><i class="ph-bold ph-hand-pointing"></i></span>Turn to one person · try a one-line invite</p>
+    </div>
+  </section>
+
+  <!-- 19 -->
+  <section class="slide" id="s-leftout" data-steps="1">
+    <div class="head">
+      <h2 class="split">Think of a time you felt left out.</h2>
+      <p class="lede rise" style="--d:5"><span class="stk-me"><i class="ph-bold ph-lock-simple"></i></span>Just for you. Nobody will ask you to share it.</p>
+    </div>
+    <div class="lo">
+      <div class="lo-card rise" style="--d:7">
+        <b>What did you do to fit in?</b>
+        <div class="lo-tiles">
+          <button class="lt">Said yes to everything</button>
+          <button class="lt">Looked for approval</button>
+          <button class="lt">Tried harder to be noticed</button>
+          <button class="lt">Went quiet</button>
+        </div>
+      </div>
+      <div class="lo-card green" data-s="1">
+        <b>What's a healthier way in?</b>
+        <p>Write 2–3 small things you could do in the places you feel left out.</p>
+        <div class="lines"><span>1</span><span>2</span><span>3</span></div>
+        <span class="stk-me pencil"><i class="ph-bold ph-pencil-simple"></i></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20 -->
+  <section class="slide" id="s-wall" data-steps="1">
+    <div class="head">
+      <h2 class="split">Build the Wall of Seats.</h2>
+      <p class="lede rise" style="--d:4">Two sticky notes. Two ways to make belonging real.</p>
+    </div>
+    <div class="notes">
+      <div class="sticky green rise" style="--d:7"><span class="lbl">Note 1 · What I need</span><p>I feel like I belong when people <u></u></p></div>
+      <div class="sticky peach rise" style="--d:8"><span class="lbl">Note 2 · What I can give</span><p>I can help someone belong by <u></u></p></div>
+    </div>
+    <div class="wall"></div>
+    <p class="wall-foot rise" style="--d:10">Add them to our wall, or keep yours private. No names needed.</p>
+  </section>
+
+  <!-- 21 -->
+  <section class="slide forest-slide" id="s-48" data-bg="forest" data-steps="1">
+    <div class="h48">
+      <h1 class="display split">In the next</h1>
+      <div class="hours"><span class="digits" data-digits="48"></span><span class="hrs">hours…</span></div>
+      <p class="lede rise" style="--d:8">make one small moment easier for someone else.</p>
+      <div class="acts">
+        <div class="act" data-s="1"><span class="stk-me"><i class="ph-bold ph-envelope-simple"></i></span>An invitation</div>
+        <div class="act" data-s="1"><span class="stk-me"><i class="ph-bold ph-lightbulb"></i></span>An explanation</div>
+        <div class="act" data-s="1"><span class="stk-me"><i class="ph-bold ph-chats-circle"></i></span>A conversation</div>
+        <div class="act hot" data-s="1"><span class="stk-me"><i class="ph-bold ph-arrow-clockwise"></i></span>A second invite</div>
+      </div>
+    </div>
+    <div class="m48" data-milo="m48"></div>
+  </section>
+
+  <!-- 22 -->
+  <section class="slide" id="s-connect" data-steps="0">
+    <div class="head">
+      <h2 class="split">You can connect with us.</h2>
+      <p class="lede rise" style="--d:5">Today may end here. The conversation doesn't have to.</p>
+    </div>
+    <div class="cn rise" style="--d:7">
+      <div class="cn-text">
+        <div class="logo"></div>
+        <p>Questions, ideas, or just want to talk? We'd be glad to hear from you.</p>
+        <p class="soft">If today brought something up, we are here for you.</p>
+      </div>
+      <div class="qr"><img src="assets/qr.png" alt="QR code to message aha on WhatsApp"><span class="hand">scan me</span></div>
+      <div class="cn-milo" data-milo="cn"></div>
+    </div>
+  </section>
+
+  <!-- 23 -->
+  <section class="slide" id="s-close" data-bg="green" data-steps="2">
+    <img class="tree tl" src="assets/tree-a.webp" alt="">
+    <img class="tree tr" src="assets/tree-b.webp" alt="">
+    <div class="close-text">
+      <h1 class="big split">Sometimes belonging isn't about finding the right room.</h1>
+      <p class="kick rise" style="--d:12">It's about someone noticing you at the door… and saving you a seat.</p>
+    </div>
+    <div class="ill-bench" data-bench="close"><img class="bench-img" src="assets/bench.webp" alt=""></div>
+    <div class="thanks" data-s="1"><span class="hand">thank you for making room.</span><div class="logo"></div></div>
+    <div class="fb-card" data-s="2">
+      <p class="eyebrow">Feedback</p>
+      <h3>How did today feel?</h3>
+      <div class="fb-qr"><img src="assets/feedback-qr.png" alt="QR code for the feedback form"></div>
+      <span class="hand">scan me</span>
+    </div>
+  </section>
+
+  <div id="brandmark" class="logo"></div>
+  <div id="progress"><span class="stop"></span><svg class="wave" viewBox="0 0 1304 40" width="1304" height="40"></svg><div class="walker" data-milo="progress"></div></div>
+  <div id="festclock"><i class="ph-bold ph-timer"></i><b>7:00</b><span>Campus fest</span></div>
+</main>
+<div id="hint">→ next · ← back · F full screen · S sound</div>
+
+<script src="sound.js?v=14"></script>
+<script src="milo.js?v=3"></script>
+<script src="deck.js?v=15"></script>
+</body>
+</html>
