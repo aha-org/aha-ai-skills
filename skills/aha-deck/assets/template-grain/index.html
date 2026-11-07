@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deck Title</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Schoolbell&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" rel="stylesheet">
+<link href="styles.css?v=1" rel="stylesheet">
+</head>
+<body>
+<!-- line boil: three noise seeds, swapped 12 times a second so drawn lines shimmer like hand animation -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="boil0" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boil1" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boil2" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boilL0" filterUnits="userSpaceOnUse" x="-60" y="-120" width="1720" height="1140"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boilL1" filterUnits="userSpaceOnUse" x="-60" y="-120" width="1720" height="1140"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boilL2" filterUnits="userSpaceOnUse" x="-60" y="-120" width="1720" height="1140"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+</svg>
+
+<main id="stage">
+  <!--
+    One <section class="slide"> per slide on a 1600 x 900 stage.
+    data-steps="N"  clicks before the next slide.  data-s="N"  appears on click N.
+    data-vt="name"  the same name on two neighbouring slides = a match cut (the element morphs across).
+    Everything moves at 8 frames a second on purpose (deck.js, FPS).
+  -->
+
+  <!-- 1. Title -->
+
+  <!-- 1. Title: the grain entrance (soft copies drift in, the sun focuses in turning, the title focuses in line by line),
+       then the cursor walks over and underlines the last word with a hand-drawn line -->
+  <section class="slide" id="s-title" data-bookend data-steps="0">
+    <div class="drift">
+      <canvas class="gr copy a" data-shape="cookie" data-size="230"></canvas>
+      <canvas class="gr copy b" data-shape="cookie" data-size="170"></canvas>
+      <canvas class="gr hero" data-shape="cookie" data-size="330" data-spin></canvas>
+    </div>
+    <h1 class="display" data-vt="title"><span class="ln">Deck</span><span class="ln">title <span class="u">here.<svg class="scribble boil" viewBox="0 0 520 60" preserveAspectRatio="none"><path d="M6 38 C 90 18, 200 50, 300 30 S 470 22, 512 34" pathLength="1"/></svg></span></span></h1>
+  </section>
+
+  <!-- 2. Agenda: four grain cards, one per click (white text on grain) -->
+  <section class="slide" id="s-brief" data-steps="4">
+    <div class="head">
+      <h2 class="split">What today is about.</h2>
+      <p class="lede rise" style="--d:5">One short line under the heading.</p>
+    </div>
+    <div class="cards4">
+      <div class="acard" data-s="1" data-fam="blush"><canvas class="fieldc" width="338" height="450"></canvas><b>01</b><span>First part</span></div>
+      <div class="acard" data-s="2" data-fam="sky"><canvas class="fieldc" width="338" height="450"></canvas><b>02</b><span>Second part</span></div>
+      <div class="acard" data-s="3" data-fam="lime"><canvas class="fieldc" width="338" height="450"></canvas><b>03</b><span>Third part</span></div>
+      <div class="acard" data-s="4" data-fam="sun"><canvas class="fieldc" width="338" height="450"></canvas><b>04</b><span>Fourth part</span></div>
+    </div>
+  </section>
+
+  <!-- 3. Statement: a dark grain field, a big line, then a hand-drawn underline on the click -->
+  <section class="slide forest-slide" id="s-statement" data-bg="forest" data-noprog data-steps="1">
+    <canvas class="fieldc" width="800" height="450"></canvas>
+    <h1 class="display split">A big question<br>goes here?</h1>
+    <p class="tell" data-s="1">And the <span class="u">answer<svg class="scribble boil" viewBox="0 0 520 60" preserveAspectRatio="none"><path d="M8 34 C 80 46, 170 18, 270 32 S 450 44, 512 26" pathLength="1"/></svg></span><span class="dot"></span></p>
+  </section>
+
+  <!-- 4. The end: the opening slide, mirrored -->
+  <section class="slide" id="s-end" data-bookend data-steps="0">
+    <div class="drift">
+      <canvas class="gr copy a" data-shape="cookie" data-size="230"></canvas>
+      <canvas class="gr copy b" data-shape="cookie" data-size="170"></canvas>
+      <canvas class="gr hero" data-shape="cookie" data-size="330" data-spin></canvas>
+    </div>
+    <h1 class="display"><span class="ln">Thank</span><span class="ln">you.</span></h1>
+  </section>
+
+  <div class="logo" id="brandmark"></div>
+  <div id="progress"></div>
+  <div id="cursor"><svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2 L20 11 L12 13 L8.5 21 Z"/></svg><em>Aha</em></div>
+</main>
+<div id="hint">→ next · ← back · F full screen · S sound</div>
+
+<script src="sound.js?v=1"></script>
+<script src="grain.js?v=1"></script>
+<script src="deck.js?v=1"></script>
+</body>
+</html>

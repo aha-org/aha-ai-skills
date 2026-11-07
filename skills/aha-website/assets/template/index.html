@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Site Title</title>
+<meta name="description" content="One plain sentence about this page.">
+<meta name="theme-color" content="#FDFBF7">
+<link rel="icon" href="assets/aha-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Schoolbell&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" rel="stylesheet">
+<link href="styles.css?v=1" rel="stylesheet">
+</head>
+<body>
+<!-- line boil: three noise seeds, swapped on the 8 fps beat so hand-drawn lines shimmer -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="boil0" x="-5%" y="-30%" width="110%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
+  <filter id="boil1" x="-5%" y="-30%" width="110%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
+  <filter id="boil2" x="-5%" y="-30%" width="110%" height="160%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17"/><feDisplacementMap in="SourceGraphic" scale="3"/></filter>
+</svg>
+
+<header class="top">
+  <a class="logo" href="#" aria-label="Aha"></a>
+  <a class="btn" href="#cta">Get started</a>
+</header>
+
+<main>
+  <!-- Hero: the grain entrance. Soft copies drift in, the sun focuses in turning, the title focuses in line by line. -->
+  <section class="hero">
+    <div class="hero-copy">
+      <h1 class="focus"><span class="ln">A calm headline</span><span class="ln">in two <span class="u">lines.<svg class="scribble boil" viewBox="0 0 520 60" preserveAspectRatio="none" aria-hidden="true"><path d="M6 38 C 90 18, 200 50, 300 30 S 470 22, 512 34" pathLength="1"/></svg></span></span></h1>
+      <p class="lede focus-late">One short line that says what happens here, in plain words.</p>
+      <a class="btn big focus-late" href="#cta">Get started</a>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      <canvas class="gr copy a" data-shape="cookie" data-size="200"></canvas>
+      <canvas class="gr copy b" data-shape="cookie" data-size="150"></canvas>
+      <canvas class="gr main" data-shape="cookie" data-size="300" data-spin></canvas>
+    </div>
+  </section>
+
+  <!-- Three grain cards: white text on grain, one family each, rise in one after another -->
+  <section class="block">
+    <h2 class="reveal">Three things this page offers</h2>
+    <div class="cards">
+      <article class="gcard reveal" data-fam="blush" style="--d:0"><canvas></canvas><b>01</b><span>The first thing, in a few words</span></article>
+      <article class="gcard reveal" data-fam="sky" style="--d:1"><canvas></canvas><b>02</b><span>The second thing</span></article>
+      <article class="gcard reveal" data-fam="lime" style="--d:2"><canvas></canvas><b>03</b><span>The third thing</span></article>
+    </div>
+  </section>
+
+  <!-- A Milo moment: one Milo, generous size, his handwritten note beside him (never over text) -->
+  <section class="block milo-row">
+    <div class="milo-host reveal" data-milo data-mood="green"></div>
+    <div class="note reveal" style="--d:2">
+      <p class="hand">psst... this is where milo says one small true thing.</p>
+    </div>
+  </section>
+
+  <!-- Statement: a forest grain field, one big line, a hand-drawn underline when it comes into view -->
+  <section class="statement">
+    <canvas class="field" data-fam="forest"></canvas>
+    <p class="big reveal">One line people <span class="u">remember.<svg class="scribble boil" viewBox="0 0 520 60" preserveAspectRatio="none" aria-hidden="true"><path d="M8 34 C 80 46, 170 18, 270 32 S 450 44, 512 26" pathLength="1"/></svg></span></p>
+  </section>
+
+  <section class="block cta" id="cta">
+    <h2 class="reveal">The one thing to do next</h2>
+    <p class="lede reveal" style="--d:1">A short reason to do it now.</p>
+    <a class="btn big reveal" style="--d:2" href="#">Do the thing</a>
+  </section>
+</main>
+
+<footer class="foot">
+  <span class="logo"></span>
+  <small>Made with care by Aha</small>
+</footer>
+
+<script src="grain.js?v=1"></script>
+<script src="milo.js?v=1"></script>
+<script src="site.js?v=1"></script>
+</body>
+</html>

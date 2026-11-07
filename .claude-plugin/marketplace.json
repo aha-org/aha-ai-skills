@@ -5,7 +5,7 @@
     {
       "name": "aha-skills",
       "source": "./",
-      "description": "Aha's internal Claude skills (brand, Milo, presentations)."
+      "description": "Aha's internal Claude skills (brand, Milo, decks, websites, videos, app screens)."
     }
   ]
 }

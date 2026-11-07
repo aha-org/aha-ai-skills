@@ -1,0 +1,94 @@
+/* Aha site: Aha type and colour, grain only on moments that matter, everything that moves at 8 frames a second. */
+:root {
+  --bg: #FDFBF7;          /* page: warm off-white */
+  --surface: #FDF6F4;     /* button fill, quiet surfaces */
+  --ink: #202020; --ink2: #62605F; --ink3: #898786;
+  --line: #CAC8C7; --hair: #00000014;
+  --brand: #749C49; --sage: #C9D27A; --forest: #4A6A3B; --cream: #FDFBF7;
+  --accent: #F28C38;      /* hand-drawn underlines */
+  --shadow: 0 4px 16px rgba(0, 0, 0, .12);
+  --serif: "Hedvig Letters Serif", Georgia, serif;
+  --sans: "Satoshi", system-ui, sans-serif;
+  --hand: "Schoolbell", cursive;
+  --r-m: 12px; --r-l: 16px; --r-xl: 28px; --r-xxl: 48px;
+  --gut: clamp(20px, 5vw, 72px);
+  --f: 125ms;             /* one frame at 8 fps */
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font: 500 18px/1.5 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+a { color: inherit; }
+
+/* ---------- type ---------- */
+h1 { font: 400 clamp(44px, 6.6vw, 112px)/1 var(--serif); letter-spacing: -0.025em; }
+h2 { font: 400 clamp(36px, 5vw, 72px)/1.05 var(--serif); letter-spacing: -0.015em; text-wrap: balance; }
+.big { font: 400 clamp(40px, 6.4vw, 104px)/1.05 var(--serif); letter-spacing: -0.02em; text-wrap: balance; }
+.lede { font-size: clamp(18px, 1.9vw, 26px); color: var(--ink2); max-width: 34ch; text-wrap: pretty; }
+.hand { font: 400 clamp(24px, 2.6vw, 34px)/1.25 var(--hand); }
+
+/* ---------- the logo (official file, coloured with a mask) ---------- */
+.logo { display: block; width: 76px; height: 40px; background: var(--brand); -webkit-mask: url(assets/aha-logo.svg) center / contain no-repeat; mask: url(assets/aha-logo.svg) center / contain no-repeat; }
+
+/* ---------- buttons: the DLS primary is outlined, never filled ink or green ---------- */
+.btn { display: inline-flex; align-items: center; gap: 10px; padding: 12px 22px; border-radius: 999px; background: var(--surface); border: 1px solid var(--ink); color: var(--ink); font: 700 16px/1 var(--sans); text-decoration: none; transition: transform .25s var(--o3); }
+.btn:active { transform: scale(.97); }
+.btn.big { padding: 18px 30px; font-size: 18px; }
+
+/* ---------- layout ---------- */
+.top { position: sticky; top: 0; z-index: 10; display: flex; align-items: center; justify-content: space-between; padding: 16px var(--gut); background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); }
+.block { padding: clamp(64px, 10vw, 140px) var(--gut); max-width: 1320px; margin: 0 auto; }
+.block > h2 { margin-bottom: clamp(28px, 4vw, 56px); }
+
+/* ---------- hero ---------- */
+.hero { position: relative; display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 24px; min-height: min(86vh, 820px); padding: 24px var(--gut) 64px; max-width: 1320px; margin: 0 auto; }
+.hero-copy { display: grid; gap: 24px; justify-items: start; position: relative; z-index: 2; }
+.hero h1 .ln { display: block; }
+.hero-art { position: relative; height: 420px; display: grid; place-items: center; }
+.hero-art .gr { opacity: 0; }
+.hero-art .copy { position: absolute; }
+.hero-art .copy.a { right: -10px; top: -30px; }
+.hero-art .copy.b { left: 0; bottom: -20px; }
+@media (max-width: 760px) {
+  .hero { grid-template-columns: 1fr; min-height: 0; }
+  .hero-art { order: -1; height: 300px; zoom: .8; }
+}
+
+/* the hand-drawn underline */
+.u { position: relative; display: inline-block; white-space: nowrap; }
+.scribble { position: absolute; left: -2%; bottom: -0.28em; width: 104%; height: .3em; overflow: visible; }
+.scribble path { fill: none; stroke: var(--accent); stroke-width: 8; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; vector-effect: non-scaling-stroke; }
+html[data-b="0"] .boil { filter: url(#boil0); }
+html[data-b="1"] .boil { filter: url(#boil1); }
+html[data-b="2"] .boil { filter: url(#boil2); }
+
+/* ---------- grain cards: white text on grain ---------- */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(14px, 2vw, 28px); }
+.gcard { position: relative; aspect-ratio: 3 / 4; border-radius: var(--r-xxl); overflow: hidden; color: var(--cream); }
+.gcard canvas { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; }
+.gcard b { position: absolute; left: 28px; top: 20px; font: 400 clamp(64px, 7vw, 104px)/1 var(--serif); letter-spacing: -0.03em; }
+.gcard span { position: absolute; left: 28px; right: 24px; bottom: 28px; font: 400 clamp(26px, 2.6vw, 38px)/1.1 var(--serif); text-wrap: balance; }
+@media (max-width: 760px) { .cards { grid-template-columns: 1fr; } .gcard { aspect-ratio: 4 / 3; } }
+
+/* ---------- Milo ---------- */
+.milo-row { display: flex; align-items: center; justify-content: center; gap: clamp(16px, 4vw, 56px); flex-wrap: wrap; }
+.milo-host { line-height: 0; }
+.note { background: #fff; border-radius: var(--r-xl) var(--r-xl) var(--r-xl) 4px; padding: 22px 28px; box-shadow: var(--shadow); max-width: 420px; }
+
+/* ---------- statement ---------- */
+.statement { position: relative; overflow: hidden; background: var(--forest); color: var(--cream); padding: clamp(96px, 14vw, 200px) var(--gut); text-align: center; }
+.statement .field { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; }
+.statement .big { position: relative; max-width: 16ch; margin: 0 auto; }
+
+.cta { text-align: center; display: grid; justify-items: center; gap: 22px; }
+.cta > h2 { margin-bottom: 0; }
+
+.foot { display: flex; align-items: center; justify-content: space-between; padding: 40px var(--gut) 56px; border-top: 1px solid var(--hair); color: var(--ink3); }
+
+/* ---------- motion: stepped, eases only (site.js writes --oN / --ioN) ---------- */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity .5s var(--o6), transform .667s var(--o8); transition-delay: calc(var(--d, 0) * 2 * var(--f)); }
+.reveal.in { opacity: 1; transform: none; }
+.hero .ln, .focus-late { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .hero .ln, .focus-late { opacity: 1 !important; transform: none !important; filter: none !important; transition: none; }
+  .scribble path { stroke-dashoffset: 0; }
+}

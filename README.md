@@ -4,6 +4,10 @@ Internal Claude skills for Aha. Keep this repo private: it contains our internal
 
 | Skill | What it does |
 | --- | --- |
+| [`aha-deck`](skills/aha-deck/SKILL.md) | Presentations you present from a browser: interactive arrow-key decks in Aha's design language (grain, Material 3 Expressive shapes, 8 fps motion, live Milo), from a brief, an outline or an existing deck, bundled to one HTML file and one live link. |
+| [`aha-website`](skills/aha-website/SKILL.md) | Web pages, event and offer pages, microsites, editorial pages and mailers in Aha's design language, put online at one link that never changes. |
+| [`aha-video`](skills/aha-video/SKILL.md) | Reels, interview cuts, explainers, animated Milo moments and TV loops, built in Remotion and rendered to MP4. |
+| [`aha-app`](skills/aha-app/SKILL.md) | App screens and flows in the app's own stack (React Native + Expo, Skia, Reanimated), run in the browser and on a phone through Expo Go. |
 | [`manans-interactive-deck`](skills/manans-interactive-deck/SKILL.md) | Turns any slide deck (PDF, PPTX, Keynote, Google Slides) into an interactive, arrow-key Aha presentation with live Milo, timers, games and sound, like Being There Matters and Save Me a Seat. |
 
 ## Install
@@ -26,12 +30,25 @@ To get updates later: `/plugin marketplace update aha-ai-skills`.
 ```bash
 git clone git@github.com:aha-org/aha-ai-skills.git ~/aha-ai-skills
 mkdir -p ~/.claude/skills
-ln -s ~/aha-ai-skills/skills/manans-interactive-deck ~/.claude/skills/manans-interactive-deck
+for s in ~/aha-ai-skills/skills/*/; do ln -sfn "$s" ~/.claude/skills/"$(basename "$s")"; done
 ```
 
 To get updates later: `git -C ~/aha-ai-skills pull`.
 
 Either way, start a **new** session afterwards (skills load when a session starts).
+
+## Using the Aha skills (aha-deck, aha-website, aha-video, aha-app)
+
+Just ask for what you need, the way you'd ask Manan, and attach whatever you have (an old deck, footage, a Figma link, a screenshot, notes). For example:
+
+- "Make a deck for Friday's all-hands about the new booking flow."
+- "Cut this interview into a 60 second reel."
+- "Make a page for the yoga workshop on 14 November."
+- "Prototype the matches screen from this Figma frame."
+
+Not sure where to start? Ask Claude "How do we work together on a video?" (or a deck, a page, an app screen). Each skill has a "How we work together" section and tells you what to give it and in what order.
+
+Each skill starts by reading its `dna/` folder: Aha's design language (brand, grain, Material 3 Expressive, motion, Milo and the review checklist). Node.js 20+ is needed for websites going online, videos and app screens; each skill sets up the rest the first time it's used. Remotion (used by aha-video) needs a company licence for Aha's work. See [`skills/aha-deck/CHANGELOG.md`](skills/aha-deck/CHANGELOG.md) for what changed in each version.
 
 ## Using manans-interactive-deck
 

@@ -1,0 +1,4 @@
+[
+ { "id": "hook", "in": 0.0, "out": 4.0, "note": "the line that makes people stop scrolling (first 3 seconds)" },
+ { "id": "story", "in": 10.0, "out": 18.0, "note": "the next part of the story, in the order it should play" }
+]

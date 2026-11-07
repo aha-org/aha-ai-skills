@@ -1,0 +1,165 @@
+/* Aha grain deck (from "Make it without me"): Aha type and colour, no Milo, everything at 8 frames a second.
+   The stepped easings (--o6, --io9 ...) are written onto :root by deck.js: --oN eases out over N frames, --ioN eases in and out.
+   --oN is named by duration: a transition that uses --oN lasts N/12 s (deck.js fills in the frames). */
+:root {
+  --bg: #FFFFFF;
+  --ink: #202020;
+  --ink2: #62605F;
+  --ink3: #898786;
+  --line: #CAC8C7;
+  --hair: #00000014;
+  --brand: #749C49;
+  --accent: #F28C38;
+  --accent-deep: #DE7020;
+  --accent-text: #A84C0C;
+  --accent-tint: #FFF1E4;
+  --green-tint: #EEF3DC;
+  --butter-tint: #FBF5CF;
+  --blue-tint: #E3ECF8;
+  --pink-tint: #FCE3EA;
+  --green-deep: #4F6A1B;
+  --forest-bg: #4A6A3B;
+  --cream: #FDFBF7;
+  --sage: #C9D27A;
+  --surface: #F5F4EC;
+  --shadow: 0 4px 16px rgba(0, 0, 0, .10);
+  --shadow-lg: 0 24px 60px rgba(32, 32, 32, .14);
+  --serif: "Hedvig Letters Serif", Georgia, serif;
+  --sans: "Satoshi", "DM Sans", system-ui, sans-serif;
+  --hand: "Schoolbell", "Comic Neue", cursive;
+  --r-xs: 4px; --r-m: 12px; --r-l: 16px; --r-li: 20px; --r-xl: 28px; --r-xxl: 48px;
+  --f: 125ms; /* one frame at 8 fps */
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow: hidden; }
+body { background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; user-select: none; }
+
+/* ---------- stage + slides ---------- */
+#stage { position: fixed; left: 50%; top: 50%; width: 1600px; height: 900px; transform-origin: 50% 50%; overflow: hidden; }
+.slide { position: absolute; inset: 0; padding: 72px 96px; display: none; }
+.slide.active { display: block; }
+.forest-slide { color: var(--cream); }
+
+/* ---------- slide changes: view transitions, stepped. Named elements (data-vt) morph across = match cuts ---------- */
+::view-transition-group(*) { animation-duration: .833s; animation-timing-function: var(--io10); }
+::view-transition-old(root) { animation: vt-out .5s var(--io6) both; }
+::view-transition-new(root) { animation: vt-in .75s var(--o9) both; }
+html.back::view-transition-old(root) { animation-name: vt-out-back; }
+html.back::view-transition-new(root) { animation-name: vt-in-back; }
+html.wipe::view-transition-old(root) { animation: none; }
+html.wipe::view-transition-new(root) { animation: vt-wipe 1s var(--io12) both; }
+html.wipe.back::view-transition-new(root) { animation-name: vt-wipe-back; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-50px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(70px); } }
+@keyframes vt-out-back { to { opacity: 0; transform: translateY(50px); } }
+@keyframes vt-in-back { from { opacity: 0; transform: translateY(-70px); } }
+@keyframes vt-wipe { from { clip-path: circle(0% at 50% 100%); } to { clip-path: circle(130% at 50% 100%); } }
+@keyframes vt-wipe-back { from { clip-path: circle(0% at 50% 0%); } to { clip-path: circle(130% at 50% 0%); } }
+#cursor { view-transition-name: cursor; }
+
+/* ---------- builds ---------- */
+.slide .rise { opacity: 0; }
+.slide.active .rise { animation: rise .667s var(--o8) both; animation-delay: calc(var(--d, 0) * var(--f) + 2 * var(--f)); }
+@keyframes rise { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
+.slide [data-s] { opacity: 0; transform: translateY(40px); transition: opacity .5s var(--o6), transform .667s var(--o8); pointer-events: none; }
+.slide [data-s].on { opacity: 1; transform: none; pointer-events: auto; }
+.w { display: inline-block; }
+.w > span { display: inline-block; opacity: 0; }
+.slide.active .split:not(.gated) .w > span, .slide.active [data-s].on .w > span { animation: wordUp .583s var(--o7) both; animation-delay: calc(var(--w) * var(--f) + var(--base, 2) * var(--f)); }
+@keyframes wordUp { from { opacity: 0; transform: translateY(.5em); } to { opacity: 1; transform: none; } }
+
+/* line boil: deck.js swaps html[data-b] 12 times a second */
+html[data-b="0"] .boil { filter: url(#boil0); }
+html[data-b="1"] .boil { filter: url(#boil1); }
+html[data-b="2"] .boil { filter: url(#boil2); }
+/* lines inside the 1600 x 900 scenes: a fixed filter region, so a perfectly flat line still renders */
+html[data-b="0"] .lines .boil { filter: url(#boilL0); }
+html[data-b="1"] .lines .boil { filter: url(#boilL1); }
+html[data-b="2"] .lines .boil { filter: url(#boilL2); }
+
+/* ---------- type ---------- */
+.display { font-family: var(--serif); font-weight: 400; font-size: 150px; line-height: 1; letter-spacing: -0.025em; }
+.big { font-family: var(--serif); font-weight: 400; font-size: 104px; line-height: 1.04; letter-spacing: -0.02em; }
+h2 { font-family: var(--serif); font-weight: 400; font-size: 84px; line-height: 1.04; letter-spacing: -0.015em; text-wrap: balance; }
+.lede { font-size: 34px; line-height: 1.35; color: var(--ink2); font-weight: 500; }
+.head { position: relative; z-index: 2; }
+.head .lede { margin-top: 16px; }
+
+/* sticker icons: white fill + thick ink line + white edge */
+.stk { position: relative; display: inline-grid; place-items: center; line-height: 1; flex: none; filter: drop-shadow(2.5px 0 0 #fff) drop-shadow(-2.5px 0 0 #fff) drop-shadow(0 2.5px 0 #fff) drop-shadow(0 -2.5px 0 #fff) drop-shadow(0 6px 10px rgba(0, 0, 0, .12)); }
+.stk i { grid-area: 1 / 1; font-size: inherit !important; }
+.stk .ph-fill { color: #fff; }
+.stk .ph-bold { color: #1C1C1C; }
+
+/* ---------- chrome ---------- */
+.logo { display: block; background: currentColor; -webkit-mask: url(assets/aha-logo-mask.png) center / contain no-repeat; mask: url(assets/aha-logo-mask.png) center / contain no-repeat; }
+#brandmark { position: absolute; right: 64px; bottom: 44px; width: 96px; height: 51px; color: var(--brand); z-index: 6; }
+body.dark #brandmark { color: var(--sage); }
+body.bookend #brandmark, body.nomark #brandmark, body.bookend #progress, body.noprog #progress { opacity: 0; }
+#progress { position: absolute; left: 96px; bottom: 58px; display: flex; gap: 12px; align-items: center; z-index: 6; }
+#progress i { width: 12px; height: 12px; border-radius: 6px; background: var(--hair); transition: width .333s var(--o4), background .333s var(--o4); }
+#progress i.past { background: var(--line); }
+#progress i.now { width: 40px; background: var(--accent); }
+body.dark #progress i { background: rgba(253, 251, 247, .22); }
+body.dark #progress i.now { background: var(--accent); }
+#hint { position: fixed; right: 24px; top: 18px; z-index: 7; font-size: 24px; color: var(--ink3); font-weight: 600; transition: opacity .667s var(--o8); }
+body.dark #hint { color: rgba(253, 251, 247, .6); }
+#hint.hide { opacity: 0; }
+
+/* the multiplayer cursor that walks through the whole deck */
+#cursor { position: absolute; left: 0; top: 0; z-index: 40; pointer-events: none; opacity: 0; transition: opacity .25s var(--o3); }
+#cursor.on { opacity: 1; }
+#cursor svg { display: block; overflow: visible; filter: drop-shadow(0 3px 6px rgba(0, 0, 0, .18)); }
+#cursor path { fill: var(--ink); stroke: #fff; stroke-width: 1.6; stroke-linejoin: round; }
+#cursor em { position: absolute; left: 30px; top: 34px; font: 700 26px/1 var(--sans); font-style: normal; color: #fff; background: var(--accent-deep); padding: 8px 14px 9px; border-radius: var(--r-m); white-space: nowrap; }
+#cursor.you em { background: var(--brand); }
+#cursor.down svg { transform: scale(.86); transform-origin: 3px 2px; }
+#cursor .ripple { position: absolute; left: 3px; top: 2px; width: 70px; height: 70px; margin: -35px; border-radius: 50%; border: 3px solid var(--accent); animation: ripple .5s var(--o6) forwards; }
+@keyframes ripple { from { transform: scale(.2); opacity: 1; } to { transform: scale(1.4); opacity: 0; } }
+
+/* ============ 1. Title ============ */
+#s-title { padding: 0; }
+#s-title .display { position: absolute; left: 132px; top: 296px; font-size: 176px; z-index: 2; }
+#s-title .ln { display: block; opacity: 0; }
+/* the drift: one sun in focus, two soft copies further back (positions/blur/opacity driven by deck.js) */
+#s-title .drift { position: absolute; inset: 0; pointer-events: none; }
+#s-title .drift .gr { position: absolute; opacity: 0; }
+#s-title .hero { left: 1150px; top: 250px; }
+#s-title .copy.a { left: 1350px; top: 30px; }
+#s-title .copy.b { left: 1230px; top: 640px; }
+#s-title .u { position: relative; display: inline-block; }
+#s-title .scribble { position: absolute; left: -2%; bottom: -40px; width: 104%; height: 46px; overflow: visible; }
+#s-title .scribble path { fill: none; stroke: var(--accent); stroke-width: 9; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+
+/* ============ 2. Brief ============ */
+#s-brief .cards4 { position: absolute; left: 96px; right: 96px; top: 330px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+#s-brief .acard { position: relative; height: 440px; border-radius: var(--r-xxl); overflow: hidden; color: #1A1A1A; }
+#s-brief .acard .fieldc { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; }
+#s-brief .acard b { position: absolute; left: 34px; top: 26px; font: 400 120px/1 var(--serif); letter-spacing: -0.03em; }
+#s-brief .acard span { position: absolute; left: 34px; right: 30px; bottom: 34px; font: 400 46px/1.08 var(--serif); text-wrap: balance; }
+
+/* ============ 3. Statement ============ */
+#s-statement { text-align: center; }
+#s-statement .display { position: absolute; left: 0; right: 0; top: 210px; font-size: 160px; }
+#s-statement .fieldc { position: absolute; inset: 0; width: 1600px; height: 900px; image-rendering: pixelated; }
+#s-statement .display, #s-statement .tell { z-index: 2; }
+#s-statement .tell { position: absolute; left: 0; right: 0; top: 600px; font: 400 64px var(--serif); color: var(--sage); }
+#s-statement .u { position: relative; display: inline-block; }
+#s-statement .scribble { position: absolute; left: -4%; bottom: -26px; width: 108%; height: 36px; overflow: visible; }
+#s-statement .scribble path { fill: none; stroke: var(--accent); stroke-width: 7; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 1; }
+#s-statement .dot { display: inline-block; width: 18px; height: 18px; border-radius: 50%; background: var(--accent); margin-left: 6px; vertical-align: 2px; }
+
+/* ============ 4. The end: the opening slide, mirrored ============ */
+#s-end { padding: 0; }
+#s-end .drift { position: absolute; inset: 0; pointer-events: none; }
+#s-end .drift .gr { position: absolute; }
+#s-end .hero { left: 150px; top: 285px; }
+#s-end .copy { opacity: 0; }
+#s-end .copy.a { left: 20px; top: 40px; }
+#s-end .copy.b { left: 360px; top: 640px; }
+#s-end .display { position: absolute; left: 600px; top: 300px; font-size: 176px; }
+#s-end .ln { display: block; opacity: 0; }
+
+#s-brief .acard { color: #FDFBF7; }
+@keyframes pop { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: none; } }
