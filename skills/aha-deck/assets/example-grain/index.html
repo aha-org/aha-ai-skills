@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Make it without me</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&family=Schoolbell&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&family=Fraunces:opsz,wght@9..144,900&family=Playfair+Display:ital,wght@1,700&family=Bodoni+Moda:opsz,wght@6..96,800&family=Syne:wght@800&family=Unbounded:wght@800&family=Space+Mono:wght@700&family=Caveat:wght@700&family=Shrikhand&family=DM+Serif+Display:ital@1&family=Major+Mono+Display&family=Bricolage+Grotesque:opsz,wght@12..96,800&family=Anton&family=Pixelify+Sans:wght@700&family=Silkscreen&text=taste.anyhig&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,-10..0,25..151,100..1000,-200..150,27..175,323..603,25..135,649..854,-305..-98,560..788,416..570,528..760&text=anything&display=block" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700,800,900&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css" rel="stylesheet">
+<link href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css" rel="stylesheet">
+<link href="styles.css?v=64" rel="stylesheet">
+</head>
+<body>
+<!-- line boil: three noise seeds, swapped 12 times a second so drawn lines shimmer like hand animation -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="boil0" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boil1" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boil2" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boilL0" filterUnits="userSpaceOnUse" x="-60" y="-120" width="1720" height="1140"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="2"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boilL1" filterUnits="userSpaceOnUse" x="-60" y="-120" width="1720" height="1140"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="9"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+  <filter id="boilL2" filterUnits="userSpaceOnUse" x="-60" y="-120" width="1720" height="1140"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="17"/><feDisplacementMap in="SourceGraphic" scale="3.2"/></filter>
+</svg>
+
+<main id="stage">
+  <!--
+    One <section class="slide"> per slide on a 1600 x 900 stage.
+    data-steps="N"  clicks before the next slide.  data-s="N"  appears on click N.
+    data-vt="name"  the same name on two neighbouring slides = a match cut (the element morphs across).
+    Everything moves at 12 frames a second on purpose (deck.js, FPS).
+  -->
+
+  <!-- 1. Title -->
+  <section class="slide" id="s-title" data-bookend data-steps="0">
+    <div class="drift">
+      <canvas class="gr copy a" data-shape="cookie" data-size="230"></canvas>
+      <canvas class="gr copy b" data-shape="cookie" data-size="170"></canvas>
+      <canvas class="gr hero" data-shape="cookie" data-size="330" data-spin></canvas>
+    </div>
+    <h1 class="display" data-vt="title"><span class="ln">Make it</span><span class="ln">without <span class="u">me.<svg class="scribble boil" viewBox="0 0 520 60" preserveAspectRatio="none"><path d="M6 38 C 90 18, 200 50, 300 30 S 470 22, 512 34" pathLength="1"/></svg></span></span></h1>
+  </section>
+
+  <!-- 2. Brief -->
+  <section class="slide" id="s-brief" data-steps="4">
+    <div class="head">
+      <h2 class="split">What today is about.</h2>
+      <p class="lede rise" style="--d:5">One hour. Nothing new to install in your head.</p>
+    </div>
+    <div class="cards4">
+      <div class="acard" data-s="1" data-fam="blush"><canvas class="fieldc" width="338" height="450"></canvas><b>01</b><span>Why I'm doing this</span></div>
+      <div class="acard" data-s="2" data-fam="sky"><canvas class="fieldc" width="338" height="450"></canvas><b>02</b><span>How I do it</span></div>
+      <div class="acard" data-s="3" data-fam="lime"><canvas class="fieldc" width="338" height="450"></canvas><b>03</b><span>How you can do it</span></div>
+      <div class="acard" data-s="4" data-fam="sun"><canvas class="fieldc" width="338" height="450"></canvas><b>04</b><span>The hand-off</span></div>
+    </div>
+  </section>
+
+  <!-- 3. Why -->
+  <section class="slide forest-slide" id="s-why" data-bg="forest" data-noprog data-steps="1">
+    <canvas class="fieldc" width="800" height="450"></canvas>
+    <h1 class="display split">Why am I<br>doing this?</h1>
+    <p class="tell" data-s="1">I'll tell you <span class="u">why<svg class="scribble boil" viewBox="0 0 520 60" preserveAspectRatio="none"><path d="M8 34 C 80 46, 170 18, 270 32 S 450 44, 512 26" pathLength="1"/></svg></span><span class="dot" data-vt="manan"></span></p>
+  </section>
+
+  <!-- 4. The path: a normal day -->
+  <section class="slide" id="s-path" data-noprog data-nomark data-steps="7">
+    <div class="world">
+      <svg class="lines" viewBox="0 0 1600 900" width="1600" height="900">
+        <path class="plan boil" d="M230 560 L1330 560"/>
+        <g class="others"></g>
+        <polyline class="trail boil" points=""/>
+      </svg>
+      <div class="goal">
+        <canvas class="gr sun" data-shape="cookie" data-size="120" data-spin></canvas>
+        <div class="goal-card"><b>Ship the new onboarding</b><p>by 6:00 pm</p><p class="nope">Didn't happen.</p></div>
+      </div>
+      <div class="people"></div>
+      <div class="face me" data-vt="manan"><span>M</span><em class="tag">Manan</em></div>
+    </div>
+    <div class="hud">
+      <h2 class="split">A normal day.</h2>
+      <div class="clock"><b>10:00</b><small>am</small></div>
+    </div>
+    <div class="talk"></div>
+    <p class="caption end">The thing that needed me most never got me.</p>
+  </section>
+
+  <!-- 5. Sort -->
+  <section class="slide" id="s-sort" data-steps="3">
+    <div class="head">
+      <h2 class="split">Most urgent things don't need a designer.</h2>
+    </div>
+    <div class="cols">
+      <div class="col-h l" data-s="2"><canvas class="gt" data-text="Needs me" data-fam="sun" data-px="56"></canvas></div>
+      <div class="col-h r" data-s="2"><span class="was">Doesn't need me</span><span class="now"><canvas class="gt" data-text="Needs you + Claude" data-fam="lime" data-px="56"></canvas></span></div>
+    </div>
+    <div class="reqs">
+      <div class="req" data-side="r">A quick post for tomorrow</div>
+      <div class="req" data-side="l">The new onboarding</div>
+      <div class="req" data-side="r">One word on the website</div>
+      <div class="req" data-side="r">A QR code, fast</div>
+      <div class="req" data-side="l">Brand direction</div>
+      <div class="req" data-side="r">That button colour</div>
+      <div class="req" data-side="r">An event banner</div>
+      <div class="req" data-side="r">A video thumbnail</div>
+      <div class="req" data-side="l">The next big feature</div>
+    </div>
+  </section>
+
+  <!-- 6. How I do it -->
+  <section class="slide" id="s-made" data-steps="4">
+    <div class="head">
+      <h2 class="split">No new software. Just a conversation.</h2>
+    </div>
+    <div class="frames">
+      <figure data-s="1"><div class="scr"><canvas class="gr" data-shape="screen" data-size="250"></canvas></div><figcaption>Videos</figcaption></figure>
+      <figure data-s="2"><div class="scr"><canvas class="gr" data-shape="slide" data-size="250"></canvas></div><figcaption>Decks</figcaption></figure>
+      <figure data-s="3"><div class="scr"><canvas class="gr" data-shape="browser" data-size="250"></canvas></div><figcaption>Websites</figcaption></figure>
+      <figure data-s="4"><div class="scr"><canvas class="gr" data-shape="phone" data-size="250"></canvas></div><figcaption>Apps</figcaption></figure>
+    </div>
+  </section>
+
+  <!-- 7. The workflow: an intro, then every step is its own full grain screen, wiping in from the bottom right -->
+  <section class="slide" id="s-loop" data-nomark data-steps="6">
+    <div class="intro">
+      <h2 class="split">How I actually work.</h2>
+      <p class="lede rise" style="--d:5">Six steps. Every time.</p>
+    </div>
+    <div class="screens">
+      <div class="scrn" data-n="1" data-fam="blush"><canvas class="fieldc" width="800" height="450"></canvas><p class="num">1 / 6</p><h3>Brief.</h3><p class="line">Who it's for, what it's for, what done looks like.</p></div>
+      <div class="scrn" data-n="2" data-fam="sky"><canvas class="fieldc" width="800" height="450"></canvas><p class="num">2 / 6</p><h3>Show.</h3><p class="line">Show what you love. Not so it can copy it.</p><p class="sub">It keeps our rules and mixes in the feel. That's where the magic is. Copy-paste is the worst thing it can do.</p></div>
+      <div class="scrn" data-n="3" data-fam="sun"><canvas class="fieldc" width="800" height="450"></canvas><p class="num">3 / 6</p><h3>Talk.</h3><p class="line">Ask for the plan before it builds anything.</p></div>
+      <div class="scrn" data-n="4" data-fam="lime"><canvas class="fieldc" width="800" height="450"></canvas><p class="num">4 / 6</p><h3>Make.</h3><p class="line">Let it build.</p></div>
+      <div class="scrn" data-n="5" data-fam="blush"><canvas class="fieldc" width="800" height="450"></canvas><p class="num">5 / 6</p><h3>Review.</h3><p class="line">One link. Check it against the rules.</p></div>
+      <div class="scrn" data-n="6" data-fam="sky"><canvas class="fieldc" width="800" height="450"></canvas><p class="num">6 / 6</p><h3>Teach.</h3><p class="line">Anything I'd say twice, it remembers.</p></div>
+    </div>
+  </section>
+
+  <!-- 8. Corrections become rules -->
+  <section class="slide" id="s-rules" data-steps="3">
+    <div class="head">
+      <h2 class="split">Every correction becomes a rule.</h2>
+    </div>
+    <div class="composer"><span class="typed"></span><i class="caret"></i><span class="send stk-me"><i class="ph-bold ph-arrow-up"></i></span></div>
+    <div class="xcard"><canvas class="fieldc" width="540" height="195"></canvas><div class="pills"></div></div>
+    <div class="file" data-vt="skill"><span class="stk-me"><i class="ph-bold ph-file-text"></i></span><b>aha-skill</b><small><em class="n">0</em> rules</small></div>
+  </section>
+
+  <!-- 9. Skills -->
+  <section class="slide" id="s-skills" data-steps="4">
+    <div class="head">
+      <h2 class="split">A skill is my workflow, saved.</h2>
+    </div>
+    <div class="file mini" data-vt="skill"><span class="stk-me"><i class="ph-bold ph-file-text"></i></span><b>aha-skill</b></div>
+    <div class="skills">
+      <div class="sk" data-s="1"><canvas class="gr" data-shape="cookie" data-size="120" data-spin></canvas><b>Video</b><p>"Cut this interview into a 60 second reel."</p></div>
+      <div class="sk" data-s="2"><canvas class="gr" data-shape="pentagon" data-size="120"></canvas><b>Deck</b><p>"Make my townhall PDF interactive."</p></div>
+      <div class="sk" data-s="3"><canvas class="gr" data-shape="diamond" data-size="120"></canvas><b>Website</b><p>"A one page site for the event."</p></div>
+      <div class="sk" data-s="4"><canvas class="gr" data-shape="leaf" data-size="120"></canvas><b>App</b><p>"Mock up the new booking screen."</p></div>
+    </div>
+  </section>
+
+  <!-- 10. Your turn: an empty composer. The cursor drags the skill in (the border glows its colour), types, sends;
+       Claude answers; one more line from you; Claude starts making it. -->
+  <section class="slide" id="s-try" data-steps="3">
+    <div class="head">
+      <h2 class="split">Your turn.</h2>
+    </div>
+    <p class="shelf rise" style="--d:4">Your skills</p>
+    <div class="att"><span class="mark"><canvas class="gr" data-shape="pentagon" data-size="62"></canvas></span><span class="lab"><b>aha-interactive-deck</b><small>Skill · Decks the Aha way</small></span></div>
+    <div class="chat"></div>
+    <canvas class="ring" width="10" height="10"></canvas>
+    <div class="composer2"><div class="slot"></div><p class="ask"><span class="typed"></span><i class="caret"></i></p><span class="send2"><i class="ph-bold ph-arrow-up"></i></span></div>
+    <canvas class="sparkle" width="10" height="10"></canvas>
+    <div class="gen"><canvas class="gr" data-shape="pentagon" data-size="56" data-spin="3"></canvas><span class="gtxt">Making your deck</span><i class="bar"><b></b></i><span class="made"><canvas class="gr" data-shape="slide" data-size="240"></canvas></span></div>
+  </section>
+
+  <!-- 11. Taste: black and white. Each letter of "taste." flips through typefaces, then slows and settles into a mix -->
+  <section class="slide" id="s-taste" data-bg="paper" data-bookend data-steps="0">
+    <!-- the only colour on the page: the four grain shapes, in the open space round the words -->
+    <canvas class="gr tshape" data-shape="cookie" data-size="360" data-spin data-lite data-vt="shape-sun" style="left:-90px;top:20px"></canvas>
+    <canvas class="gr tshape" data-shape="pentagon" data-size="340" data-spin="-32" data-lite data-vt="shape-pentagon" style="left:1345px;top:70px"></canvas>
+    <canvas class="gr tshape" data-shape="leaf" data-size="340" data-wave data-lite data-vt="shape-leaf" style="left:-60px;top:540px"></canvas>
+    <canvas class="gr tshape" data-shape="diamond" data-size="320" data-spin="28" data-lite data-vt="shape-diamond" style="left:1360px;top:560px"></canvas>
+    <div class="say">
+      <p class="ln" style="--i:0">Ask Claude first.</p>
+      <p class="ln" style="--i:1">Ask me when it needs</p>
+      <p class="taste ln" style="--i:2" aria-label="taste."><span>t</span><span>a</span><span>s</span><span>t</span><span>e</span><span>.</span></p>
+    </div>
+  </section>
+
+  <!-- 12. Hand-off: the skills go out by mail. Manan sends the real mail live, then clicks: sent, and all ten receive it -->
+  <section class="slide" id="s-handoff" data-steps="1">
+    <div class="head">
+      <h2 class="split">I'm handing it over.</h2>
+    </div>
+    <div class="zip"><div class="four"><canvas class="gr" data-shape="cookie" data-size="76" data-spin data-vt="shape-sun"></canvas><canvas class="gr" data-shape="pentagon" data-size="76" data-vt="shape-pentagon"></canvas><canvas class="gr" data-shape="diamond" data-size="76" data-vt="shape-diamond"></canvas><canvas class="gr" data-shape="leaf" data-size="76" data-vt="shape-leaf"></canvas></div><b>aha-skills</b><small>video · deck · website · app</small></div>
+    <div class="mail">
+      <p class="mhead">New message</p>
+      <p class="mrow"><span>To</span>The whole team</p>
+      <p class="mrow"><span>Subject</span>Your Aha skills</p>
+      <p class="mbody">Here's everything. Add these to Claude and make anything.</p>
+      <p class="mfile"><span class="stk-me"><i class="ph-bold ph-paperclip"></i></span>aha-skills.zip · 4 skills</p>
+      <span class="msend">Send</span>
+    </div>
+    <div class="sent"><div class="crew"></div><p>In your inbox. Now.</p></div>
+  </section>
+
+  <!-- 13. What they do now: three things, then anything -->
+  <section class="slide" id="s-do" data-steps="4">
+    <div class="head">
+      <h2 class="split">Now you just do this.</h2>
+    </div>
+    <div class="stairs">
+      <div class="stp" data-s="1" data-fam="sky" style="left:96px;top:500px;width:440px;height:290px"><canvas class="fieldc"></canvas><b>1</b><span>Open Claude</span></div>
+      <div class="stp" data-s="2" data-fam="lime" style="left:580px;top:380px;width:440px;height:410px"><canvas class="fieldc"></canvas><b>2</b><span>Add the skills from the mail</span></div>
+      <div class="stp" data-s="3" data-fam="sun" style="left:1064px;top:260px;width:440px;height:530px"><canvas class="fieldc"></canvas><b>3</b><span>Ask for what you need</span></div>
+    </div>
+    <div class="any" data-s="4">
+      <p class="l0">Make <span class="vw"><i>a</i><i>n</i><i>y</i><i>t</i><i>h</i><i>i</i><i>n</i><i>g</i></span></p>
+      <p class="l0">you want.</p>
+    </div>
+  </section>
+
+  <!-- 14. When it breaks: come to me, we fix it, the skill gets better for everyone -->
+  <section class="slide" id="s-broke" data-steps="3">
+    <div class="say">
+      <h2 class="split">Something broke?</h2>
+      <p class="line" data-n="1">Come to me.</p>
+      <p class="line" data-n="2">We fix it together.</p>
+      <p class="line" data-n="3">And the skill gets better for everyone.</p>
+    </div>
+    <div class="flow">
+      <div class="node you"><i class="av" data-fam="sky"></i><small>You</small></div>
+      <svg class="arr a1 boil" viewBox="0 0 200 60"><path d="M10 36 C 60 14, 130 50, 186 28" pathLength="1"/><path class="tip" d="M170 16 L188 28 L172 42"/></svg>
+      <div class="node me"><span class="face-m">M</span><small>Me</small></div>
+      <svg class="arr a2 boil" viewBox="0 0 200 60"><path d="M10 30 C 70 48, 120 10, 186 30" pathLength="1"/><path class="tip" d="M170 18 L188 30 L172 44"/></svg>
+      <div class="node skill"><canvas class="gr" data-shape="pentagon" data-size="96"></canvas><small>The skill</small></div>
+      <svg class="arr a3 boil" viewBox="0 0 200 60"><path d="M10 34 C 60 12, 130 52, 186 30" pathLength="1"/><path class="tip" d="M170 18 L188 30 L172 44"/></svg>
+      <div class="node all"><div class="crew"></div><small>Everyone</small></div>
+    </div>
+  </section>
+
+  <!-- 13. Close: the same day, again -->
+  <section class="slide" id="s-close" data-bookend data-steps="0">
+    <div class="world">
+      <svg class="lines" viewBox="0 0 1600 900" width="1600" height="900">
+        <path class="plan boil" d="M230 600 L1330 600"/>
+        <g class="others"></g>
+        <polyline class="trail boil" points=""/>
+      </svg>
+      <div class="claude"><span class="stk-me"><i class="ph-bold ph-sparkle"></i></span><b>You + Claude</b></div>
+      <div class="goal">
+        <canvas class="gr sun" data-shape="cookie" data-size="120" data-spin data-vt="goal"></canvas>
+        <div class="goal-card"><b>Ship the new onboarding</b><p>by 6:00 pm</p><p class="yes">Shipped.</p></div>
+      </div>
+      <div class="people"></div>
+      <div class="face me"><span>M</span><em class="tag">Manan</em></div>
+    </div>
+  </section>
+
+  <!-- 14. The line, on its own: the goal sun from the day match-cuts into the big sun, the opening slide mirrored -->
+  <section class="slide" id="s-end" data-bookend data-steps="0">
+    <div class="drift">
+      <canvas class="gr copy a" data-shape="cookie" data-size="230"></canvas>
+      <canvas class="gr copy b" data-shape="cookie" data-size="170"></canvas>
+      <canvas class="gr hero" data-shape="cookie" data-size="330" data-spin data-vt="goal"></canvas>
+    </div>
+    <h1 class="display"><span class="ln">Make it</span><span class="ln">without me.</span></h1>
+  </section>
+
+  <!-- 17. The end of the end: Manan's video -->
+  <section class="slide" id="s-video" data-bookend data-steps="0">
+    <video src="assets/video/thank-you.mp4" playsinline preload="auto"></video>
+  </section>
+
+  <div id="brandmark" class="logo"></div>
+  <div id="progress"></div>
+  <div id="cursor"><svg viewBox="0 0 24 24" width="40" height="40"><path d="M3 2 L20 11 L12 13 L8.5 21 Z"/></svg><em>Manan</em></div>
+</main>
+<div id="hint">→ next · ← back · F full screen · S sound</div>
+
+<script src="sound.js?v=64"></script>
+<script src="grain.js?v=64"></script>
+<script src="deck.js?v=64"></script>
+</body>
+</html>

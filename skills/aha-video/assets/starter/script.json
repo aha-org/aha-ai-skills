@@ -1,0 +1,17 @@
+{
+ "voice": "en-IN-NeerjaExpressiveNeural",
+ "rate": "+10%",
+ "music": "footage/music/track.mp3",
+ "musicOffset": 0,
+ "beatsPerShot": 4,
+ "lines": [
+  { "id": "hook", "text": "The line that makes people stop scrolling, in the first three seconds." },
+  { "id": "what", "text": "What we did, in plain everyday words." },
+  { "id": "end", "text": "One line that asks people to do something. Comment, share, try it." }
+ ],
+ "shots": [
+  { "file": "media/clip1.mp4", "in": 0 },
+  { "file": "media/clip2.mp4", "in": 2.5 },
+  { "file": "media/photo1.jpg" }
+ ]
+}
