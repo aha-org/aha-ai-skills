@@ -1,6 +1,6 @@
 {
   "name": "aha-skills",
   "description": "Aha's internal Claude skills (brand, Milo, decks, websites, videos, app screens).",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": { "name": "Aha" }
 }
