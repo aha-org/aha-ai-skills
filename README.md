@@ -8,6 +8,7 @@ Internal Claude skills for Aha. Keep this repo private: it contains our internal
 | [`aha-website`](skills/aha-website/SKILL.md) | Web pages, event and offer pages, microsites, editorial pages and mailers in Aha's design language, put online at one link that never changes. |
 | [`aha-video`](skills/aha-video/SKILL.md) | Reels, interview cuts, explainers, animated Milo moments and TV loops, built in Remotion and rendered to MP4. |
 | [`aha-app`](skills/aha-app/SKILL.md) | App screens and flows in the app's own stack (React Native + Expo, Skia, Reanimated), run in the browser and on a phone through Expo Go. |
+| [`aha-page-craft`](skills/aha-page-craft/SKILL.md) | Designing and writing Aha's marketing pages at a senior level: the grid, lines and spacing, card hierarchy and uniform sets, copy written from a brief in the reader's own words, plus the landing site's kit and the checks to run. For work in `apps/aha-landing`. |
 | [`manans-interactive-deck`](skills/manans-interactive-deck/SKILL.md) | Turns any slide deck (PDF, PPTX, Keynote, Google Slides) into an interactive, arrow-key Aha presentation with live Milo, timers, games and sound, like Being There Matters and Save Me a Seat. |
 
 ## Install
